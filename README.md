@@ -1,4 +1,4 @@
-# get_method_api_module
+# terraform-aws-api-bootstrap
 
 This module is to provide an API in AWS. The module includes the following:
 
@@ -15,7 +15,7 @@ The following items may be added to this at a later date:
 
 ## Table of Contents
 
-- [Repository Template](#repository-template)
+- [terraform-aws-api-bootstrap](#terraform-aws-api-bootstrap)
   - [Table of Contents](#table-of-contents)
   - [Setup](#setup)
   - [Usage](#usage)
@@ -27,8 +27,8 @@ The following items may be added to this at a later date:
 Clone the repository
 
 ```shell
-git clone https://github.com/nhs-england-tools/repository-template.git
-cd nhs-england-tools/repository-template
+git clone https://github.com/nhs-england-tools/terraform-aws-api-bootstrap.git
+cd nhs-england-tools/terraform-aws-api-bootstrap
 ```
 
 ## Usage
