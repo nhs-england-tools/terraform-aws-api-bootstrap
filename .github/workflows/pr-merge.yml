@@ -1,0 +1,19 @@
+name: notification
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  send-notifications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send notification to MS Teams channel (merged)
+        if: github.event.pull_request.merged == true
+        uses: nhs-england-tools/notify-msteams-action@v0.0.4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          teams-webhook-url: ${{ secrets.TEAMS_NOTIFICATION_WEBHOOK_URL }}
+          message-title: "Pull Request Merged"
+          message-text: "Pull request **[${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }})** merged into ${{ github.event.pull_request.base.ref }}"
+          link: ${{ github.event.pull_request.html_url }}
