@@ -13,6 +13,11 @@ output "api_gateway_execution_arn" {
   description = "The execution arn for the API Gateway"
 }
 
+output "api_gateway_arn" {
+  value       = aws_apigatewayv2_api.get_method_api.arn
+  description = "The ARN of the API Gateway"
+}
+
 output "lambda_function_name" {
   value       = aws_lambda_function.get_method_lambda.function_name
   description = "The name of the Lambda function"

@@ -37,7 +37,7 @@ This module can be called by including the following:
 
 ```hcl
 module "get_method_api" {
-  source               = "github.com/NHSDigital/ee-terraform-modules//get_method_api_module?ref=v0.0.1"
+  source               = "github.com/nhs-england-tools/terraform-aws-api-bootstrap//terraform?ref=20231002"
   aws_region           = "eu-west-2"
   project_name         = "my_get_method_api1"
   lambda_function_name = "my_get_method_lambda1"
@@ -47,7 +47,6 @@ module "get_method_api" {
 
 data "archive_file" "lambda_1" {
   type = "zip"
-
   source_dir  = "${path.module}/files/lambda1/hello_world"
   output_path = "${path.module}/lambda_archive/hello_world.zip"
 }
