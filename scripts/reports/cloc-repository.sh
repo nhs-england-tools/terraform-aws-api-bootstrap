@@ -38,7 +38,10 @@ function create-report() {
   > cloc-report.tmp.json
   if which jq > /dev/null && which column > /dev/null; then
     # shellcheck disable=SC2002
+    cat cloc-report.tmp.json | jq -r '["Language","files","blank","comment","code"],["--------"],(.languages[]|[.name,.files,.blank,.comment,.code]),["-----"],(.total|["TOTAL",.files,.blank,.comment,.code])|@tsv' | column -t
+  fi
 }
+
 function enrich-report() {
 
   build_datetime=${BUILD_DATETIME:-$(date -u +'%Y-%m-%dT%H:%M:%S%z')}
