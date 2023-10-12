@@ -74,10 +74,7 @@ function test-docker-build() {
 function test-docker-image-from-signature() {
 
   # Arrange
-<<<<<<< HEAD
-=======
   TOOL_VERSIONS="$(git rev-parse --show-toplevel)/scripts/docker/tests/.tool-versions.test"
->>>>>>> 15499cbbd2aae9db59fb34ff8b5abf070066fbef
   cp Dockerfile Dockerfile.effective
   # Act
   _replace-image-latest-by-specific-version
@@ -147,11 +144,7 @@ function test-docker-get-image-version-and-pull() {
 
 # ==============================================================================
 
-<<<<<<< HEAD
-function is_arg_true() {
-=======
 function is-arg-true() {
->>>>>>> 15499cbbd2aae9db59fb34ff8b5abf070066fbef
 
   if [[ "$1" =~ ^(true|yes|y|on|1|TRUE|YES|Y|ON)$ ]]; then
     return 0
@@ -162,11 +155,7 @@ function is-arg-true() {
 
 # ==============================================================================
 
-<<<<<<< HEAD
-is_arg_true "${VERBOSE:-false}" && set -x
-=======
 is-arg-true "${VERBOSE:-false}" && set -x
->>>>>>> 15499cbbd2aae9db59fb34ff8b5abf070066fbef
 
 main "$@"
 
