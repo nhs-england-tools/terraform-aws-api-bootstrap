@@ -58,7 +58,7 @@ jobs:
         run: |
           echo "Building artefact ..."
           export release_name=terraform-aws-api-bootstrap-${{ needs.metadata.outputs.version }}.tar.gz
-          tar -czf $release_name ./lambda ./terraform
+          tar -czf $release_name ./terraform
       - name: "Create release"
         uses: softprops/action-gh-release@v1
         with:
