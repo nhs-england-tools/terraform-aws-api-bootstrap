@@ -68,3 +68,28 @@ variable "log_retention_days" {
   description = "The number of days to retain log events in the CloudWatch Logs Log Group."
   default     = 14
 }
+
+variable "lambda_vpc_config" {
+  description = "VPC configuration for the Lambda function."
+  type = object({
+    security_group_ids = list(string)
+    subnet_ids         = list(string)
+  })
+  default = {
+    security_group_ids = []
+    subnet_ids         = []
+  }
+}
+
+variable "api_route_method" {
+  description = "The route method for the API Gateway."
+  type        = string
+  default     = "GET"
+}
+
+variable "api_route_path" {
+  description = "The path for the API Gateway."
+  type        = string
+  default     = "/"
+
+}
