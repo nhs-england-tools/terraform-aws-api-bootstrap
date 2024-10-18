@@ -68,7 +68,7 @@ resource "aws_apigatewayv2_integration" "get_method_lambda_integration" {
 
 resource "aws_apigatewayv2_route" "get_method_route" {
   api_id    = aws_apigatewayv2_api.get_method_api.id
-  route_key = "${var.api_route} /"
+  route_key = "${var.api_route_method} ${var.api_route_path}"
   target    = "integrations/${aws_apigatewayv2_integration.get_method_lambda_integration.id}"
 }
 

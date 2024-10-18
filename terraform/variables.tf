@@ -81,8 +81,15 @@ variable "lambda_vpc_config" {
   }
 }
 
-variable "api_route" {
+variable "api_route_method" {
   description = "The route for the API Gateway."
   type        = string
   default     = "GET"
+}
+
+variable "api_route_path" {
+  description = "The path for the API Gateway."
+  type        = string
+  default     = "/"
+
 }
