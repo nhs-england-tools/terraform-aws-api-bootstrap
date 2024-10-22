@@ -34,6 +34,15 @@ resource "aws_lambda_function" "get_method_lambda" {
       variables = var.lambda_environment_variables
     }
   }
+
+  dynamic "vpc_config" {
+    for_each = length(keys(var.lambda_vpc_config)) == 0 ? [] : [true]
+    content {
+      subnet_ids         = var.lambda_vpc_config.subnet_ids
+      security_group_ids = var.lambda_vpc_config.security_group_ids
+    }
+  }
+
 }
 
 resource "aws_cloudwatch_log_group" "get_method_lambda_log_group" {
@@ -59,7 +68,7 @@ resource "aws_apigatewayv2_integration" "get_method_lambda_integration" {
 
 resource "aws_apigatewayv2_route" "get_method_route" {
   api_id    = aws_apigatewayv2_api.get_method_api.id
-  route_key = "GET /"
+  route_key = "${var.api_route_method} ${var.api_route_path}"
   target    = "integrations/${aws_apigatewayv2_integration.get_method_lambda_integration.id}"
 }
 
