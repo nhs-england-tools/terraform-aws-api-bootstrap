@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Send notification to MS Teams channel (merged)
         if: github.event.pull_request.merged == true
-        uses: nhs-england-tools/notify-msteams-action@v0.0.4
+        uses: nhs-england-tools/notify-msteams-action@v1.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           teams-webhook-url: ${{ secrets.TEAMS_NOTIFICATION_WEBHOOK_URL }}
